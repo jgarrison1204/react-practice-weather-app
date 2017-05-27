@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import InputWeather from './components/InputWeather';
+import Api from './utils/api'
 import './styles.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userinput: ''
+            userinput: '',
+            cityweatherdata: []
         }
-    this.handleChange = this.handleChange.bind(this); 
-    this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this); 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.returnData = this.returnData.bind(this);
     }
 
     handleChange(event) {
@@ -22,6 +25,19 @@ class App extends Component {
         this.setState({
             userinput: ''
         })
+        this.returnData(5368361);
+    }
+    
+    returnData(city) {
+        Api.fetchWeatherData(city)
+        .then(weather => {
+            let returnWeatherData = weather.map(data => {
+                return `${Math.round(data.temp.day)} `;
+            });
+            this.setState({
+                cityweatherdata: returnWeatherData
+            })
+        });
     }
 
     render() {
@@ -33,7 +49,11 @@ class App extends Component {
                 <InputWeather
                     cityWeather = {this.state.userinput}
                     handleChange = {this.handleChange}
+                    handleSubmit = {this.handleSubmit}
                 />
+                <div>
+                    {this.state.cityweatherdata}
+                </div>
             </div>
         );
     }
