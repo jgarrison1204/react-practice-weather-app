@@ -9,7 +9,7 @@ class InputWeather extends Component {
 
 	handleSubmitPreventDefault(event) {
 		event.preventDefault();
-		this.props.handleSubmit(event.target.value);
+		this.props.handleSubmit();
 	}
 
 	render() {
@@ -17,7 +17,7 @@ class InputWeather extends Component {
 			<div>
 				<form onSubmit={this.handleSubmitPreventDefault}>
 					<input
-						placeholder='Los Angeles, California' 
+						placeholder='Enter a city' 
 						type='text'
 						value={this.props.cityWeather}
 						onChange={this.props.handleChange}/>
