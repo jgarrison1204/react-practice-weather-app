@@ -21,11 +21,11 @@ class App extends Component {
         })
     }
 
-    handleSubmit() {
-        this.returnData(this.state.userinput);
+    handleSubmit(event) {
         this.setState({
             userinput: ''
         })
+        this.returnData(5368361);
     }
     
     returnData(city) {
