@@ -22,25 +22,27 @@ class App extends Component {
     }
 
     handleSubmit(event) {
+        this.returnData(this.state.userinput);
         this.setState({
             userinput: ''
         })
-        this.returnData(5368361);
     }
     
     returnData(city) {
         Api.fetchWeatherData(city)
         .then(weather => {
-            let returnWeatherData = weather.map(data => {
-                return `${Math.round(data.temp.day)} `;
-            });
             this.setState({
-                cityweatherdata: returnWeatherData
+                cityweatherdata: weather
             })
         });
     }
 
     render() {
+        // create an array of images with the image rendering from the api's icon property.
+        const weatherImages = this.state.cityweatherdata.map((image, i) => {
+            // webpack you need to use require(..path) to have images render from the server in localhost.
+            return <img key={image + i} src={require(`./weather-icons/${image}.svg`)} alt="weather icon"/>;
+        });
         return (
             <div className="App">
                 <div className="App-header">
@@ -52,7 +54,7 @@ class App extends Component {
                     handleSubmit = {this.handleSubmit}
                 />
                 <div>
-                    {this.state.cityweatherdata}
+                    {weatherImages}
                 </div>
             </div>
         );
