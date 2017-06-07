@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InputWeather from './components/InputWeather';
 import Api from './utils/api'
+import WeatherImage from './components/WeatherImage';
 import './styles.css';
 
 class App extends Component {
@@ -41,7 +42,12 @@ class App extends Component {
         // create an array of images with the image rendering from the api's icon property.
         const weatherImages = this.state.cityweatherdata.map((image, i) => {
             // webpack you need to use require(..path) to have images render from the server in localhost.
-            return <img key={image + i} src={require(`./weather-icons/${image}.svg`)} alt="weather icon"/>;
+            return (
+                <WeatherImage
+                    key= {image + i}
+                    icon= {image}
+                />
+            )
         });
         return (
             <div className="App">
@@ -49,11 +55,11 @@ class App extends Component {
                   <h2>Enter a City and state</h2>
                 </div>
                 <InputWeather
-                    cityWeather = {this.state.userinput}
-                    handleChange = {this.handleChange}
-                    handleSubmit = {this.handleSubmit}
+                    cityWeather= {this.state.userinput}
+                    handleChange= {this.handleChange}
+                    handleSubmit= {this.handleSubmit}
                 />
-                <div>
+                <div className='row'>
                     {weatherImages}
                 </div>
             </div>
