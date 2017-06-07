@@ -46,6 +46,7 @@ class App extends Component {
                 <WeatherImage
                     key= {image + i}
                     icon= {image}
+                    dateIncrementor= {i}
                 />
             )
         });

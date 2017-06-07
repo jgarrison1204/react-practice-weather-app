@@ -19,11 +19,16 @@
 }
 
 .image-container {
-  margin: 4%;  
+  margin: 4%;
+  margin-bottom: 1%;  
 }
 
 .image-wrapper {
   height: 100px;
+}
+
+.date-wrapper {
+
 }
 
 @keyframes App-logo-spin {
