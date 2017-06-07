@@ -12,7 +12,6 @@ const apiCall = {
 	const fetchWeatherData = `http://api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=5&units=imperial&APPID=${apiKey}`;
 		return Axios.get(fetchWeatherData)
 			.then(response => {
-				console.log(response)
 				return getWeatherDescription(response.data.list);
 			})
 			.catch(error => {
