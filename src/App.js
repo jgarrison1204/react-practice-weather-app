@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import InputWeather from './components/InputWeather';
-import Api from './utils/api'
+import Api from './utils/api';
 import WeatherImage from './components/WeatherImage';
 import './styles.css';
 
@@ -63,6 +64,11 @@ class App extends Component {
                 <div className='row'>
                     {weatherImages}
                 </div>
+                <Link 
+                    className='btn btn-success'
+                    to='/weather'>
+                    Click This Button
+                </Link>
             </div>
         );
     }
