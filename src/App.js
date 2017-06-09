@@ -70,7 +70,7 @@ class App extends Component {
                     className='btn btn-success'
                     to={{
                         pathname: '/weather',
-                        search: `${userInputToPassToSearch}`}}>
+                        search: `city=${userInputToPassToSearch}`}}>
                     Click This Button
                 </Link>
             </div>
