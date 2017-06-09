@@ -40,6 +40,8 @@ class App extends Component {
     }
 
     render() {
+        // variable to hold userinput to be passed as the value to the search key in the to object in the Link component
+        let userInputToPassToSearch = this.state.userinput;
         // create an array of images with the image rendering from the api's icon property.
         const weatherImages = this.state.cityweatherdata.map((image, i) => {
             // webpack you need to use require(..path) to have images render from the server in localhost.
@@ -66,7 +68,9 @@ class App extends Component {
                 </div>
                 <Link 
                     className='btn btn-success'
-                    to='/weather'>
+                    to={{
+                        pathname: '/weather',
+                        search: `${userInputToPassToSearch}`}}>
                     Click This Button
                 </Link>
             </div>

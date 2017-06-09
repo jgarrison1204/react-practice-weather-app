@@ -7,7 +7,8 @@ import {
 import App from './App';
 import WeatherImage from './components/WeatherImage';
 
-const PlaceHolder = () => {
+const PlaceHolder = (props) => {
+	console.log(props)
 	return <p>PlaceHolder</p>
 }
 
