@@ -20,7 +20,8 @@
 
 .image-container {
   margin: 4%;
-  margin-bottom: 1%;  
+  margin-bottom: 1%;
+  text-align: center;  
 }
 
 .image-wrapper {
@@ -28,7 +29,7 @@
 }
 
 .date-wrapper {
-
+  
 }
 
 @keyframes App-logo-spin {
