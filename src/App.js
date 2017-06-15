@@ -39,7 +39,7 @@ class App extends Component {
                     handleChange= {this.handleChange}
                     handleSubmit= {this.handleSubmit}
                 />
-                <Link 
+                <Link
                     className='btn btn-success'
                     to={{
                         pathname: '/weather',

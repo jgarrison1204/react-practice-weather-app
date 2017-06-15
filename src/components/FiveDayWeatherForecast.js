@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Api from '../utils/api';
+import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 import WeatherImage from './WeatherImage';
 
@@ -54,6 +55,12 @@ class FiveDayWeatherForecast extends Component {
 				<div className='row'>
 					{weatherImages}	          
             	</div>
+            	<Link
+            		className='btn btn-primary'
+            		to={{
+            			pathname: '/details'
+            		}}>
+            	</Link>
 			</div>
         )
 	}

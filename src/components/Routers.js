@@ -7,6 +7,12 @@ import {
 import App from '../App';
 import FiveDayWeatherForecast from './FiveDayWeatherForecast';
 
+function test(props) {
+	return (
+		<div>Place holder</div>
+	)
+}
+
 class Navigation extends Component {
 	render() {
 		return (
@@ -14,6 +20,7 @@ class Navigation extends Component {
 				<Switch>
 					<Route exact path='/' component={App}></Route>
 					<Route exact path='/weather' component={FiveDayWeatherForecast}></Route>
+					<Route exact path='/details' component={test}></Route>
 				</Switch>
 			</Router>
 		)

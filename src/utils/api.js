@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import Axios from 'axios';	
 const weatherApi = 'http://api.openweathermap.org/data/2.5/forecast/daily?q=';
 const apiKey = '&cnt=5&units=imperial&APPID=63657c7a59c6a9ed5a8e870e4c69a754';
 
