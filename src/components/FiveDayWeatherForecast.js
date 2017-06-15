@@ -8,6 +8,7 @@ class FiveDayWeatherForecast extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			cityname: '',
 			cityweatherdata: []
 		}
 	}
@@ -16,7 +17,8 @@ class FiveDayWeatherForecast extends Component {
         Api.fetchWeatherData(city)
         .then(weather => {
             this.setState({
-                cityweatherdata: weather
+            	cityname: weather.cityName,
+                cityweatherdata: weather.weatherData
             })
         });
     }
@@ -39,9 +41,20 @@ class FiveDayWeatherForecast extends Component {
             )
         });
 		return (
-			<div className='row'>
-	            {weatherImages}
-            </div>
+			<div>
+				<header 
+					style={
+						{
+							textAlign:'center',
+							marginTop: '3%'
+						}
+					}>
+					<h2>{this.state.cityname}</h2>
+				</header>
+				<div className='row'>
+					{weatherImages}	          
+            	</div>
+			</div>
         )
 	}
 }
