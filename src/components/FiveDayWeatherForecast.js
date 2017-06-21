@@ -3,6 +3,7 @@ import Api from '../utils/api';
 import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 import WeatherImage from './WeatherImage';
+import WeatherDetail from './WeatherDetail';
 
 class FiveDayWeatherForecast extends Component {
 	
@@ -12,6 +13,7 @@ class FiveDayWeatherForecast extends Component {
 			cityname: '',
 			cityweatherdata: []
 		}
+		this.handleRoute = this.handleRoute.bind(this);
 	}
 
 	returnData(city) {
@@ -29,17 +31,23 @@ class FiveDayWeatherForecast extends Component {
 		this.returnData(cityForApi.city);
 	}
 
+	handleRoute(event) {
+		// programmtically add pathway to history object and add in the search (city) to the url from the previous route.
+		this.props.history.push(`/details${this.props.location.search}`);
+	}
+
 	render() {
         // create an array of images with the image rendering from the api's icon property.
         const weatherImages = this.state.cityweatherdata.map((image, i) => {
             // webpack you need to use require(..path) to have images render from the server in localhost.
             return (
                 <WeatherImage
-                    key= {image + i}
-                    icon= {image}
-                    dateIncrementor= {i}
+                	handleRoute={this.handleRoute.bind(null, image)}
+    				key={image+i}
+                    data= {image}
+                    dateIncrementor= {i}	                    
                 />
-            )
+           )
         });
 		return (
 			<div>
@@ -55,12 +63,6 @@ class FiveDayWeatherForecast extends Component {
 				<div className='row'>
 					{weatherImages}	          
             	</div>
-            	<Link
-            		className='btn btn-primary'
-            		to={{
-            			pathname: '/details'
-            		}}>
-            	</Link>
 			</div>
         )
 	}
