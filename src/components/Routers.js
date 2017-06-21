@@ -17,11 +17,11 @@ class Navigation extends Component {
 	render() {
 		return (
 			<Router>
-				<Switch>
+				<div>
 					<Route exact path='/' component={App}></Route>
-					<Route exact path='/weather' component={FiveDayWeatherForecast}></Route>
-					<Route exact path='/details' component={test}></Route>
-				</Switch>
+					<Route path='/weather' component={FiveDayWeatherForecast}></Route>
+					<Route path='/details' component={test}></Route>
+				</div>
 			</Router>
 		)
 	}
