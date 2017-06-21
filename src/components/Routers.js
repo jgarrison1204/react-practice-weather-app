@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 import App from '../App';
 import FiveDayWeatherForecast from './FiveDayWeatherForecast';
+import WeatherDetail from './WeatherDetail';
 
 function test(props) {
 	return (
@@ -19,7 +20,7 @@ class Navigation extends Component {
 				<div>
 					<Route exact path='/' component={App}></Route>
 					<Route path='/weather' component={FiveDayWeatherForecast}></Route>
-					<Route path='/details' component={test}></Route>
+					<Route path='/details' component={WeatherDetail}></Route>
 				</div>
 			</Router>
 		)
