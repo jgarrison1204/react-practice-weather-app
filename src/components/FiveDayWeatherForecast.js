@@ -23,7 +23,7 @@ class FiveDayWeatherForecast extends Component {
                 cityweatherdata: weather.weatherData
             })
         });
-    }
+    } 
 	// use compondentDidMount to make API call once component is created as a DOM element.
 	componentDidMount() {
 		let cityForApi = queryString.parse(this.props.location.search);
@@ -31,8 +31,10 @@ class FiveDayWeatherForecast extends Component {
 	}
 
 	handleRoute(event) {
-		// programmtically add pathway to history object and add in the search (city) to the url from the previous route.
-		this.props.history.push(`/details${this.props.location.search}`);
+		// programmtically add pathway to history object and add in the search (city) to the url from the previous route. history.push takes the path as first argument and an optional location.state as the second parameter.
+		event.city = this.state.cityname;
+		let locationState = this.props.location.state = event;
+		this.props.history.push(`/details${this.props.location.search}`, locationState);
 	}
 
 	render() {
