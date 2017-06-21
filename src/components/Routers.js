@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {
 	BrowserRouter as Router,
-	Route,
-	Switch
+	Route
 } from 'react-router-dom';
 import App from '../App';
 import FiveDayWeatherForecast from './FiveDayWeatherForecast';

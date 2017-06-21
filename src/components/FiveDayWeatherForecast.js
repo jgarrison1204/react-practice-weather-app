@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import Api from '../utils/api';
-import {Link} from 'react-router-dom';
 import queryString from 'query-string';
 import WeatherImage from './WeatherImage';
 import WeatherDetail from './WeatherDetail';
@@ -39,7 +38,6 @@ class FiveDayWeatherForecast extends Component {
 	render() {
         // create an array of images with the image rendering from the api's icon property.
         const weatherImages = this.state.cityweatherdata.map((image, i) => {
-            // webpack you need to use require(..path) to have images render from the server in localhost.
             return (
                 <WeatherImage
                 	handleRoute={this.handleRoute.bind(null, image)}
