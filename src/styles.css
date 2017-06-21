@@ -28,8 +28,10 @@
   height: 100px;
 }
 
-.date-wrapper {
-  
+.center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;  
 }
 
 @keyframes App-logo-spin {
