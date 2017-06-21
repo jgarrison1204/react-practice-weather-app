@@ -7,7 +7,17 @@ function getWeatherDescription(city) {
 	return Axios.get(getLink)
 		.then(response => {
 		return response.data.list.map(data => {
-	        return data.weather[0].icon;
+	        let weather = data.weather;
+	        let temp = data.temp;
+	        return {
+	        	date: data.dt,
+	        	humidity: data.humidity,
+	        	icon: weather[0].icon,
+				description: weather[0].description,
+	        	day: temp.day,
+	        	maxtemp: temp.max,
+	        	mintemp: temp.min		
+	        }
 	    });
 	})
 }
