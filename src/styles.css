@@ -18,6 +18,22 @@
   font-size: large;
 }
 
+.image-container {
+  margin: 4%;
+  margin-bottom: 1%;
+  text-align: center;  
+}
+
+.image-wrapper {
+  height: 100px;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;  
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

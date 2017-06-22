@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import InputWeather from './components/InputWeather';
-import Api from './utils/api'
 import './styles.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            userinput: '',
-            cityweatherdata: []
+            userinput: ''
         }
         this.handleChange = this.handleChange.bind(this); 
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.returnData = this.returnData.bind(this);
     }
 
     handleChange(event) {
@@ -21,39 +19,33 @@ class App extends Component {
         })
     }
 
-    handleSubmit() {
+    handleSubmit(event) {
         this.returnData(this.state.userinput);
         this.setState({
             userinput: ''
         })
     }
     
-    returnData(city) {
-        Api.fetchWeatherData(city)
-        .then(weather => {
-            let returnWeatherData = weather.map(data => {
-                return `${Math.round(data.temp.day)} `;
-            });
-            this.setState({
-                cityweatherdata: returnWeatherData
-            })
-        });
-    }
-
     render() {
+        // variable to hold userinput to be passed as the value to the search key in the to object in the Link component
+        let userInputToPassToSearch = this.state.userinput;
         return (
             <div className="App">
                 <div className="App-header">
                   <h2>Enter a City and state</h2>
                 </div>
                 <InputWeather
-                    cityWeather = {this.state.userinput}
-                    handleChange = {this.handleChange}
-                    handleSubmit = {this.handleSubmit}
+                    cityWeather= {this.state.userinput}
+                    handleChange= {this.handleChange}
+                    handleSubmit= {this.handleSubmit}
                 />
-                <div>
-                    {this.state.cityweatherdata}
-                </div>
+                <Link
+                    className='btn btn-success'
+                    to={{
+                        pathname: '/weather',
+                        search: `city=${userInputToPassToSearch}`}}>
+                    Click This Button
+                </Link>
             </div>
         );
     }
