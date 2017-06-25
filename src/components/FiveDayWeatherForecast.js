@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Api from '../utils/api';
 import queryString from 'query-string';
 import WeatherImage from './WeatherImage';
-import WeatherDetail from './WeatherDetail';
 
 class FiveDayWeatherForecast extends Component {
 	
@@ -51,18 +50,16 @@ class FiveDayWeatherForecast extends Component {
         });
 		return (
 			<div>
-				<header 
-					style={
-						{
-							textAlign:'center',
-							marginTop: '3%'
-						}
-					}>
-					<h2>{this.state.cityname}</h2>
-				</header>
-				<div className='row'>
-					{weatherImages}	          
-            	</div>
+				<div className="App-header">
+					<header>
+						<h2>{this.state.cityname}</h2>
+					</header>
+				</div>		
+				<div className='container'>
+					<div className='d-flex flex-wrap justify-content-around image-group-wrapper'>
+						{weatherImages}	          
+	            	</div>
+				</div>
 			</div>
         )
 	}

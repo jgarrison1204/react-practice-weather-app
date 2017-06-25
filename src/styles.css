@@ -8,6 +8,10 @@
 }
 
 .App-header {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   background-color: #222;
   height: 150px;
   padding: 20px;
@@ -18,14 +22,31 @@
   font-size: large;
 }
 
+.nav-margin {
+  margin-top: 150px;
+}
+
+.background-image-wrapper{
+  background-image: url('weather-icons/pattern.svg');
+}
+
+.page-wrapper {
+  height: calc(100vh - 150px);
+}
+
+.image-group-wrapper {
+  margin-top: 5%;
+}
+
 .image-container {
   margin: 4%;
   margin-bottom: 1%;
-  text-align: center;  
+  text-align: center;
+  min-width: 200px;  
 }
 
 .image-wrapper {
-  height: 100px;
+  height: 125px;
 }
 
 .center {
@@ -34,7 +55,21 @@
   text-align: center;  
 }
 
+.detail-list-item {
+  font-weight: 500;
+  font-size:  1.25em;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+@media only screen and (max-width: 600px) {
+    .weather-wrapper {
+      width: 100%;
+    }
+    .image-wrapper {
+      height: 75px;
+    }
 }

@@ -7,12 +7,6 @@ import App from '../App';
 import FiveDayWeatherForecast from './FiveDayWeatherForecast';
 import WeatherDetail from './WeatherDetail';
 
-function test(props) {
-	return (
-		<div>Place holder</div>
-	)
-}
-
 class Navigation extends Component {
 	render() {
 		return (
