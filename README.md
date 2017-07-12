@@ -8,7 +8,8 @@ You will need to install `Node.js` and npm. Please follow this [link](https://no
 
 ## Built With
 
-* Reactjs
+* React.js
+* React Router
 * Bootstrap 4
 * OpenWeather API
 * Node.js
