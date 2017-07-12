@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 class InputWeather extends Component {
 	constructor(props) {
 		super(props);
-
 		this.handleSubmitPreventDefault = this.handleSubmitPreventDefault.bind(this);
 	}
 
@@ -17,13 +16,13 @@ class InputWeather extends Component {
 			<div>
 				<form>
 					<input
-						placeholder='Los Angeles, California' 
+						placeholder='Enter the city here.' 
 						type='text'
 						value={this.props.cityWeather}
 						onChange={this.props.handleChange}/>
 				</form>			
 			</div>
-		)
+		);
 	}
 }
 

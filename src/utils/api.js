@@ -7,19 +7,19 @@ function getWeatherDescription(city) {
 	return Axios.get(getLink)
 		.then(response => {
 		return response.data.list.map(data => {
-	        let weather = data.weather;
-	        let temp = data.temp;
-	        return {
-	        	date: data.dt,
-	        	humidity: data.humidity,
-	        	icon: weather[0].icon,
+			let weather = data.weather;
+			let temp = data.temp;
+			return {
+				date: data.dt,
+				humidity: data.humidity,
+				icon: weather[0].icon,
 				description: weather[0].description,
-	        	day: temp.day,
-	        	maxtemp: temp.max,
-	        	mintemp: temp.min		
-	        }
-	    });
-	})
+				day: temp.day,
+				maxtemp: temp.max,
+				mintemp: temp.min		
+			};
+		});
+	});
 }
 
 function getCityNameFromApi(city) {
@@ -27,7 +27,7 @@ function getCityNameFromApi(city) {
 	return Axios.get(getLink)
 	.then(response => {
 		return response.data.city.name;
-	})
+	});
 }
 
 const apiCall = {
@@ -38,15 +38,15 @@ const apiCall = {
 		])
 		.then(response => {
 			 return {
-			 	weatherData: response[0],
-			 	cityName: response[1]
-			 }
+				weatherData: response[0],
+				cityName: response[1]
+			 };
 		})
 		.catch(error => {
-			console.log(error)
+			console.log(error);
 		});
 	}
-}
+};
 
 export default apiCall;
 

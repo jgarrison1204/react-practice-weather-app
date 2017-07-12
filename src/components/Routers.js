@@ -17,8 +17,8 @@ class Navigation extends Component {
 					<Route path='/details' component={WeatherDetail}></Route>
 				</div>
 			</Router>
-		)
+		);
 	}
 }
 
-export default Navigation
+export default Navigation;

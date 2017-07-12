@@ -1,3 +1,4 @@
+// Holds days and months to convert from UTC for dates in Weather Image and Weather Detail components.
 function convertToReadableDate(day, month, date) {	
 	const days = [
 		'Sunday',
@@ -23,7 +24,8 @@ function convertToReadableDate(day, month, date) {
 		'November',
 		'December'
 	];
-	return `${days[day]}, ${months[month]}, ${date}`
+	// returns formatted date.
+	return `${days[day]}, ${months[month]}, ${date}`;
 }
 
 export default convertToReadableDate;

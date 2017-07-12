@@ -4,6 +4,7 @@ import WeatherImage from './WeatherImage';
 function WeatherDetail(props) {
 	let dataForDay = props.location.state;
 	return (
+		// Renders the weather detials for a speciic day.  Weather image component used.
 		<div>			
 			<div className="App-header">
 				<header>
@@ -11,7 +12,7 @@ function WeatherDetail(props) {
 				</header>
 			</div>	
 			<section className='container'>
-	 			<div className='center detail-list-item'>
+				<div className='center detail-list-item'>
 					<WeatherImage data={dataForDay}/>
 					<p className='lead'>{dataForDay.city}</p>
 					<p className='lead'>{dataForDay.description}</p>
@@ -21,7 +22,7 @@ function WeatherDetail(props) {
 				</div>
 			</section>
 		</div>
-	)
+	);
 }
 
 export default WeatherDetail;
